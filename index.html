@@ -63,6 +63,13 @@
     }
 
     async function getFriendship() {
+	  const friend = await liff.getFriendship()
+	  document.getElementById("friendship").append(friend.friendFlag)
+	  if (!friend.friendFlag) {
+	    if (confirm("Add bot?")) {
+		  window.location = "https://line.me/R/to/p/@026tlxxh"
+		}
+	  }
     }
 
     async function sendMsg() {
@@ -120,7 +127,7 @@
       getEnvironment()
       getUserProfile()
       getContext()
-      // getFriendship()
+      getFriendship()
       // createUniversalLink()
     }
     main()
